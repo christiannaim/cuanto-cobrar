@@ -1,33 +1,26 @@
 function calcular() {
   const horas = document.getElementById("horas").value;
-  const precio = document.getElementById("precio").value;
+  const tarifa = document.getElementById("tarifa").value;
   const moneda = document.getElementById("moneda").value;
-  const resultado = document.getElementById("resultado");
 
-  if (horas === "" || precio === "") {
-    resultado.innerText = "❌ Completa todos los campos";
+  if (!horas || !tarifa) {
+    document.getElementById("resultado").innerText = "Completa todos los campos";
     return;
   }
 
-  const total = horas * precio;
-  resultado.innerText = "✅ Deberías cobrar: " + moneda + " " + total;
+  const total = horas * tarifa;
+
+  const texto = Deberías cobrar ${total} ${moneda};
+  document.getElementById("resultado").innerText = texto;
+
+  // GUARDAR CÁLCULO
+  localStorage.setItem("ultimoCalculo", texto);
 }
 
-function compartirWhatsApp() {
-  const texto = document.getElementById("resultado").innerText;
-
-  if (!texto || texto.includes("Completa")) {
-    alert("Primero calcula un monto");
-    return;
+// CARGAR CÁLCULO GUARDADO
+window.onload = function () {
+  const guardado = localStorage.getItem("ultimoCalculo");
+  if (guardado) {
+    document.getElementById("resultado").innerText = guardado;
   }
-
-  const mensaje =
-    texto +
-    "\n\nCalculado con esta herramienta:\n" +
-    "https://christianmdim.github.io/cuanto-cobrar/";
-
-  const link = "https://api.whatsapp.com/send?text=" + encodeURIComponent(mensaje);
-
-  // abrir en la misma pestaña (NO lo bloquea el navegador)
-  window.location.href = link;
-}
+};
