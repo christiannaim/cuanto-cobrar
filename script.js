@@ -1,6 +1,7 @@
 function calcular() {
   const horas = document.getElementById("horas").value;
   const precio = document.getElementById("precio").value;
+  const moneda = document.getElementById("moneda").value;
 
   if (horas === "" || precio === "") {
     document.getElementById("resultado").innerText =
@@ -11,5 +12,5 @@ function calcular() {
   const total = horas * precio;
 
   document.getElementById("resultado").innerText =
-    "✅ Deberías cobrar: $" + total;
+    "✅ Deberías cobrar: " + moneda + " " + total;
 }

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Cuánto cobrar</title>
+  <title>¿Cuánto cobrar?</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +12,12 @@
 
     <input type="number" id="horas" placeholder="Horas trabajadas">
     <input type="number" id="precio" placeholder="Precio por hora">
+
+    <select id="moneda">
+      <option value="$">$ Pesos</option>
+      <option value="USD">USD</option>
+      <option value="€">EUR</option>
+    </select>
 
     <button onclick="calcular()">Calcular</button>
 
