@@ -2,25 +2,26 @@ function calcular() {
   const horas = document.getElementById("horas").value;
   const tarifa = document.getElementById("tarifa").value;
   const moneda = document.getElementById("moneda").value;
+  const resultadoDiv = document.getElementById("resultado");
 
-  if (!horas || !tarifa) {
-    document.getElementById("resultado").innerText = "Completa todos los campos";
+  if (horas === "" || tarifa === "") {
+    resultadoDiv.innerText = "Completa todos los campos";
     return;
   }
 
-  const total = horas * tarifa;
+  const total = Number(horas) * Number(tarifa);
+  const texto = "Deberías cobrar " + total + " " + moneda;
 
-  const texto = Deberías cobrar ${total} ${moneda};
-  document.getElementById("resultado").innerText = texto;
+  resultadoDiv.innerText = texto;
 
-  // GUARDAR CÁLCULO
+  // GUARDAR
   localStorage.setItem("ultimoCalculo", texto);
 }
 
-// CARGAR CÁLCULO GUARDADO
-window.onload = function () {
+// CARGAR AL ABRIR
+document.addEventListener("DOMContentLoaded", function () {
   const guardado = localStorage.getItem("ultimoCalculo");
   if (guardado) {
     document.getElementById("resultado").innerText = guardado;
   }
-};
+});
