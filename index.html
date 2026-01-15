@@ -2,29 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¿Cuánto cobrar?</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Cuánto cobrar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
   <div class="card">
-    <h1>💰 ¿Cuánto cobrar?</h1>
+    <h1>¿Cuánto cobrar por tu trabajo?</h1>
 
     <input type="number" id="horas" placeholder="Horas trabajadas">
-    <input type="number" id="precio" placeholder="Precio por hora">
+    <input type="number" id="tarifa" placeholder="Tarifa por hora">
 
     <select id="moneda">
-      <option value="$">$ Pesos</option>
       <option value="USD">USD</option>
-      <option value="€">EUR</option>
+      <option value="MXN">MXN</option>
+      <option value="ARS">ARS</option>
+      <option value="COP">COP</option>
     </select>
 
-    <button onclick="calcular()">Calcular</button>
+    <button id="btnCalcular">Calcular</button>
 
-    <p id="resultado"></p>
+    <div id="resultado"></div>
 
-    <button class="whatsapp" onclick="compartirWhatsApp()">
-      📲 Compartir por WhatsApp
+    <button class="whatsapp" id="btnWhatsapp">
+      Compartir por WhatsApp
     </button>
   </div>
 
